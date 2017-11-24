@@ -32,6 +32,7 @@ typedef struct CarType* Car;
 
 void init();
 
+
 int get_speed(Car car);
 
 Type get_type(Car car);
