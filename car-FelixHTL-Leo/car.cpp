@@ -6,11 +6,14 @@
 #define MULTIPLA_MAX_ACCELERATE 2.26
 #define JEEP_MAX_ACCELERATE 3.14
 #define LOWEST_ACCELERATION -8
+#define MAX_SPEED_AIXAM 45
+#define MAX_SPEED_MULTIPLA 170
+#define MAX_SPEED_JEEP 196
 
 struct CarType {
 Type type;
 Color color;
-int current_speed;
+double current_speed;
 double fill_level;
 double accelerate;
 };
@@ -60,7 +63,7 @@ void init(){
 }
 
 int get_speed(Car car){
-  return car->current_speed;
+  return round(car->current_speed);
 }
 
 Type get_type(Car car){
@@ -121,5 +124,34 @@ void set_acceleration_rate(Car car, double acceleration){
 }
 
 void accelerate(Car car){
+  double speed = car->accelerate * 3.6;
+  if(car->type == AIXAM){
+    if(car->current_speed + speed <= MAX_SPEED_AIXAM){
+      car->current_speed += speed;
+    }
+    else{
+      car->current_speed = MAX_SPEED_AIXAM;
+    }
+  }
+  else if(car->type == FIAT_MULTIPLA){
+    if(car->current_speed + speed <= MAX_SPEED_MULTIPLA){
+      car->current_speed += speed;
+    }
+    else{
+      car->current_speed = MAX_SPEED_MULTIPLA;
+    }
+  }
+  else if(car->type == JEEP){
+    if(car->current_speed + speed <= MAX_SPEED_JEEP){
+      car->current_speed += speed;
+    }
+    else{
+      car->current_speed = MAX_SPEED_JEEP;
+    }
+  }
+}
 
+int round(double speed){
+int rounded = (speed + 0.5);
+return rounded;
 }

@@ -9,7 +9,7 @@ TEST = test_car
 PROGRAM = car
 
 TESTOBJECT = car_test_driver.o
-MAINOBJECT = car_main_driver.o
+MAINOBJECT = car_race.o
 OBJS = shortcut.o car.o test_car.o
 
 DOXY            = /Applications/Doxygen/Doxygen.app/Contents/Resources/doxygen
@@ -43,22 +43,18 @@ test: $(TEST)
 setsample:
 	cp car.cpp.sample car.cpp
 	cp car.h.sample car.h
-
 #sets project as assignment
 setassignment:
 	cp car.cpp.assignment car.cpp
 	cp car.h.assignment car.h
-
 # defines current state of project as sample solution
 definesample:
 	cp car.cpp car.cpp.sample
 	cp car.h car.h.sample
-
 # defines current sate of project as assignment
 defineassignment:
 	cp car.cpp car.cpp.assignment
 	cp car.h car.h.assignment
-
 # creates a folder which can serve as a publishable assignment
 assignmentfolder:
 	make setassignment

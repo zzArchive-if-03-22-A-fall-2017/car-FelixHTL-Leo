@@ -49,4 +49,6 @@ void set_acceleration_rate(Car car, double acceleration);
 
 void accelerate(Car car);
 
+int round(double speed);
+
 #endif
