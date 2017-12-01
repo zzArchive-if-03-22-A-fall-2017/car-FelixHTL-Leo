@@ -45,8 +45,10 @@ double get_acceleration_rate(Car car);
 
 Car get_car(Type type);
 
-double set_acceleration_rate(Car car, double acceleration);
+void set_acceleration_rate(Car car, double acceleration);
 
 void accelerate(Car car);
+
+int round(double speed);
 
 #endif
