@@ -9,7 +9,7 @@ TEST = test_car
 PROGRAM = car
 
 TESTOBJECT = car_test_driver.o
-MAINOBJECT = car_race.o
+MAINOBJECT = car_main_driver.o
 OBJS = shortcut.o car.o test_car.o
 
 DOXY            = /Applications/Doxygen/Doxygen.app/Contents/Resources/doxygen
