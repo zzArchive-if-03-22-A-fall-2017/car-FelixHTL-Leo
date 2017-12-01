@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "car.cpp"
 #include "time.h"
 
@@ -19,6 +20,7 @@ void init_racetrack();
 void get_random_accelration();
 void highest_accelration();
 bool check_if_reached_finishline();
+void draw_racetrack();
 
 
 int main(int argc, char const *argv[]) {
@@ -65,9 +67,9 @@ void init_racetrack(){
         strcpy(racetrack[i].name, "J2");
         count_j++;
       }
+    }
   }
-
-}
+  draw_racetrack();
 }
 void get_random_accelration(){
   for (int i = 0; i < MAX_CARS; i++) {
@@ -85,6 +87,7 @@ void highest_accelration(){
     }
     if(check == true){
       racetrack[i].position++;
+      draw_racetrack();
       return;
     }
   }
@@ -98,4 +101,74 @@ bool check_if_reached_finishline(){
     }
   }
   return false;
+}
+
+void draw_racetrack(){
+  printf("CAR RACE\n");
+  printf("**********************************\n");
+  for (int i = 0; i < MAX_CARS; i++) {
+    if(racetrack[i].position == 0){
+      printf("___________________________________\n");
+      printf("%s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 1){
+      printf("___________________________________\n");
+      printf("   %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 2){
+      printf("___________________________________\n");
+      printf("      %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 3){
+      printf("___________________________________\n");
+      printf("         %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 4){
+      printf("___________________________________\n");
+      printf("            %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 5){
+      printf("___________________________________\n");
+      printf("               %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 6){
+      printf("___________________________________\n");
+      printf("                  %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 7){
+      printf("___________________________________\n");
+      printf("                     %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 7){
+      printf("___________________________________\n");
+      printf("                        %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 8){
+      printf("___________________________________\n");
+      printf("                           %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 9){
+      printf("___________________________________\n");
+      printf("                              %s\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+    else if(racetrack[i].position == 10){
+      printf("___________________________________\n");
+      printf("                                 %sWIN!!!!\n", racetrack[i].name);
+      printf("___________________________________\n");
+    }
+  }
+  printf("**********************************\n");
+  printf("\n");
+  sleep(1);
 }
